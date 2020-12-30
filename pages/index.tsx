@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { NextSeo } from "next-seo";
 import { Editor, Frame, Element } from "@craftjs/core";
 import { Container, Text } from "../components/selectors";
-import { createMuiTheme, Accordion } from "@material-ui/core";
+import { createMuiTheme } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/styles";
 import { Custom1, OnlyButtons } from "../components/selectors/Custom1";
 import { Custom2, Custom2VideoDrop } from "../components/selectors/Custom2";
 import { Custom3, Custom3BtnDrop } from "../components/selectors/Custom3";
+import { Card } from "../components/selectors/Card";
 import { Button } from "../components/selectors/Button";
 import { Video } from "../components/selectors/Video";
 import { Viewport, RenderNode } from "../components/editor";
@@ -60,7 +61,7 @@ function App() {
           onRender={RenderNode}
         >
           <Viewport>
-            <Frame data={json}>
+            <Frame>
               <Element
                 canvas
                 is={Container}
@@ -88,7 +89,7 @@ function App() {
                     <Text
                       fontSize="23"
                       fontWeight="400"
-                      text="CLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                      text="CLorem Ipsum."
                     ></Text>
                   </Element>
                   <Element
@@ -104,6 +105,69 @@ function App() {
                       text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
                     ></Text>
                   </Element>
+                </Element>
+
+                <Element
+                  canvas
+                  background={{
+                    r: 182,
+                    g: 241,
+                    b: 195,
+                    a: 0.85,
+                  }}
+                  is={Container}
+                  width="100%"
+                  height="100%"
+                  padding={["10", "20", "0", "20"]}
+                >
+                  <Text
+                    fontSize="24"
+                    fontWeight="400"
+                    text="Testemonials"
+                  ></Text>
+                </Element>
+                <Element
+                  canvas
+                  background={{
+                    r: 182,
+                    g: 241,
+                    b: 195,
+                    a: 0.85,
+                  }}
+                  is={Container}
+                  padding={["20", "20", "20", "20"]}
+                  flexDirection="row"
+                  width="100%"
+                  justifyContent="center"
+                >
+                  <Card
+                    background={{
+                      r: 119,
+                      g: 219,
+                      b: 165,
+                      a: 1,
+                    }}
+                    height="250px"
+                    width="250px"
+                    padding={["20", "20", "20", "20"]}
+                    margin={["0", "10", "0", "0"]}
+                    shadow={40}
+                    color={{ r: 0, g: 0, b: 0, a: 1 }}
+                  />
+                  <Card
+                    background={{
+                      r: 119,
+                      g: 219,
+                      b: 165,
+                      a: 1,
+                    }}
+                    height="250px"
+                    width="250px"
+                    padding={["20", "20", "20", "20"]}
+                    margin={["0", "0", "0", "10"]}
+                    shadow={40}
+                    color={{ r: 0, g: 0, b: 0, a: 1 }}
+                  />
                 </Element>
 
                 <Element
@@ -232,7 +296,7 @@ function App() {
                         }}
                         fontSize="14"
                         fontWeight="400"
-                        text="You can define areas within your React component which users can drop other components into. <br/><br />You can even design how the component should be edited — content editable, drag to resize, have inputs on toolbars — anything really."
+                        text="You can define areas within your React component which you can drop other components into. <br/><br />You can even design how the component should be edited — content editable, drag to resize, have inputs on toolbars — anything really."
                       ></Text>
                     </Element>
                   </Element>

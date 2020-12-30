@@ -1,24 +1,26 @@
-import React from 'react';
-import { Element, useEditor } from '@craftjs/core';
-import { Tooltip } from '@material-ui/core';
-import { Container } from '../../selectors/Container';
-import { Text } from '../../selectors/Text';
-import { Video } from '../../selectors/Video';
-import { Button } from '../../selectors/Button';
+import React from "react";
+import { Element, useEditor } from "@craftjs/core";
+import { Tooltip } from "@material-ui/core";
+import { Container } from "../../selectors/Container";
+import { Card } from "../../selectors/Card";
+import { Custom1 } from "../../selectors/Custom1";
+import { Text } from "../../selectors/Text";
+import { Video } from "../../selectors/Video";
+import { Button } from "../../selectors/Button";
 
-import SquareSvg from '../../../public/icons/toolbox/rectangle.svg';
-import TypeSvg from '../../../public/icons/toolbox/text.svg';
-import YoutubeSvg from '../../../public/icons/toolbox/video-line.svg';
-import ButtonSvg from '../../../public/icons/toolbox/button.svg';
-import UndoSvg from '../../../public/icons/toolbox/undo.svg';
-import RedoSvg from '../../../public/icons/toolbox/redo.svg';
+import SquareSvg from "../../../public/icons/toolbox/rectangle.svg";
+import TypeSvg from "../../../public/icons/toolbox/text.svg";
+import YoutubeSvg from "../../../public/icons/toolbox/video-line.svg";
+import ButtonSvg from "../../../public/icons/toolbox/button.svg";
+import UndoSvg from "../../../public/icons/toolbox/undo.svg";
+import RedoSvg from "../../../public/icons/toolbox/redo.svg";
 
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const ToolboxDiv = styled.div<{ enabled: boolean }>`
   transition: 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-  ${(props) => (!props.enabled ? `width: 0;` : '')}
-  ${(props) => (!props.enabled ? `opacity: 0;` : '')}
+  ${(props) => (!props.enabled ? `width: 0;` : "")}
+  ${(props) => (!props.enabled ? `opacity: 0;` : "")}
 `;
 
 const Item = styled.a<{ disabled?: boolean; move?: boolean }>`
@@ -69,12 +71,36 @@ export const Toolbox = () => {
                 background={{ r: 78, g: 78, b: 78, a: 1 }}
                 color={{ r: 0, g: 0, b: 0, a: 1 }}
                 height="300px"
-                width="300px"
+                width="100%"
               ></Element>
             )
           }
         >
           <Tooltip title="Container" placement="right">
+            <Item className="m-2 pb-2 cursor-pointer block" move>
+              <SquareSvg />
+            </Item>
+          </Tooltip>
+        </div>
+        <div
+          ref={(ref) =>
+            create(
+              ref,
+              <Element
+                canvas
+                is={Card}
+                background={{ r: 255, g: 255, b: 255, a: 1 }}
+                color={{ r: 0, g: 0, b: 0, a: 1 }}
+                height="250px"
+                width="250px"
+                padding={["20", "20", "20", "20"]}
+                margin={["0", "0", "0", "0"]}
+                shadow={40}
+              ></Element>
+            )
+          }
+        >
+          <Tooltip title="Card" placement="right">
             <Item className="m-2 pb-2 cursor-pointer block" move>
               <SquareSvg />
             </Item>
@@ -98,13 +124,13 @@ export const Toolbox = () => {
             </Item>
           </Tooltip>
         </div>
-        <div ref={(ref) => create(ref, <Video />)}>
+        {/* <div ref={(ref) => create(ref, <Video />)}>
           <Tooltip title="Video" placement="right">
             <Item className="m-2 pb-2 cursor-pointer block" move>
               <YoutubeSvg />
             </Item>
           </Tooltip>
-        </div>
+        </div> */}
       </div>
       <div className="flex flex-col items-center pt-3">
         <div>
